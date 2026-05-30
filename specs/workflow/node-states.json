@@ -1,0 +1,39 @@
+{
+  "states": {
+    "pending": {
+      "color": "#94a3b8",
+      "background": "#f8fafc",
+      "borderColor": "#cbd5e1",
+      "textColor": "#64748b",
+      "label": "Pending"
+    },
+    "running": {
+      "color": "#3b82f6",
+      "background": "#eff6ff",
+      "borderColor": "#bfdbfe",
+      "textColor": "#1d4ed8",
+      "label": "Running"
+    },
+    "waiting_approval": {
+      "color": "#eab308",
+      "background": "#fef9c3",
+      "borderColor": "#fef08a",
+      "textColor": "#a16207",
+      "label": "Awaiting Approval"
+    },
+    "success": {
+      "color": "#22c55e",
+      "background": "#f0fdf4",
+      "borderColor": "#bbf7d0",
+      "textColor": "#15803d",
+      "label": "Success"
+    },
+    "failed": {
+      "color": "#ef4444",
+      "background": "#fef2f2",
+      "borderColor": "#fca5a5",
+      "textColor": "#b91c1c",
+      "label": "Failed"
+    }
+  }
+}

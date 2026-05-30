@@ -1,0 +1,32 @@
+# Node dependency directories
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Local configuration files (contains API keys and secrets)
+.env
+.env*.local
+
+# Next.js build output
+client/.next/
+client/out/
+
+# Server logs and file uploads
+server/logs/*.log
+server/uploads/
+uploads/
+
+# IDE / Editor folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

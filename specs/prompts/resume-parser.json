@@ -1,0 +1,29 @@
+{
+  "temperature": 0.1,
+  "system_prompt": "You are an expert AI Resume Parser. Your job is to extract structured details from the raw text of a candidate's resume PDF. Return a clean JSON object conforming to the output schema. Do not include any conversational markdown, text explanations, or prefix/suffix. Return ONLY the JSON.",
+  "known_skills": [
+    "React", "JavaScript", "HTML", "CSS", "TypeScript", "Node.js", "Express",
+    "MongoDB", "SQL", "Python", "Java", "C++", "Tailwind CSS", "Next.js",
+    "Redux", "GraphQL", "Docker", "AWS", "Git"
+  ],
+  "output_schema": {
+    "name": "String",
+    "email": "String",
+    "phone": "String",
+    "skills": ["String"],
+    "experience_years": "Number",
+    "education": [
+      {
+        "degree": "String",
+        "school": "String",
+        "year": "Number"
+      }
+    ],
+    "projects": [
+      {
+        "title": "String",
+        "description": "String"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "subject": "Interview Invitation: {{job_title}} at AI Recruitment Organization",
+  "template": "<div style=\"font-family: sans-serif; padding: 20px; line-height: 1.6;\"><h2>Hello {{candidate_name}},</h2><p>We are excited to invite you for an interview for the <strong>{{job_title}}</strong> position at AI Recruitment Organization.</p><p>Our AI Matching Agent has reviewed your application and verified your qualifications align nicely with our requirements.</p><p><strong>Next Steps:</strong></p><p>Please review the attached interview questions and coding task prepared for you. We would love to schedule a video call next week to walk through your code.</p><p>Best regards,<br>The Recruitment Team</p></div>"
+}

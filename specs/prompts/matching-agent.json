@@ -1,0 +1,12 @@
+{
+  "weights": {
+    "required_skills_weight": 0.5,
+    "preferred_skills_weight": 0.3,
+    "experience_weight": 0.2
+  },
+  "rules": {
+    "exact_skill_match_only": false,
+    "experience_match_buffer_years": 0
+  },
+  "system_prompt": "You are an AI Matching Agent. Compare the candidate's parsed resume details with the Job requirements. Determine which required skills are matched, which preferred skills are matched, and list any missing required skills. Output a score from 0 to 100 based on the configured weights. Return a structured JSON containing: match_score, matched_required_skills, matched_preferred_skills, missing_required_skills, and experience_match (boolean)."
+}

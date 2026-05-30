@@ -1,0 +1,4 @@
+{
+  "subject": "Application Update: {{job_title}}",
+  "template": "<div style=\"font-family: sans-serif; padding: 20px; line-height: 1.6;\"><h2>Hello {{candidate_name}},</h2><p>Thank you for your interest in the <strong>{{job_title}}</strong> position at AI Recruitment Organization.</p><p>We received many applications and, after careful review of your skills and experience against our requirements, we have decided to proceed with other candidates whose qualifications more closely match our current needs.</p><p>We appreciate the time you took to apply and wish you the best of luck in your job search.</p><p>Sincerely,<br>The Hiring Team</p></div>"
+}

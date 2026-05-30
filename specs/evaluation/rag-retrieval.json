@@ -1,0 +1,6 @@
+{
+  "resume_chunk_size": 500,
+  "policy_chunk_size": 1000,
+  "top_k": 5,
+  "minimum_similarity": 0.75
+}
