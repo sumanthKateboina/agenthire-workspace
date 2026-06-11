@@ -1,7 +1,17 @@
+const dns = require('dns');
+try {
+  dns.setServers(['8.8.8.8', '1.1.1.1']);
+} catch (e) {
+  console.warn('Could not set custom DNS servers:', e.message);
+}
+if (dns.setDefaultResultOrder) {
+  dns.setDefaultResultOrder('ipv4first');
+}
 const mongoose = require('mongoose');
+const env = require('./src/config/env');
 
 // Set env variables manually if needed
-process.env.MONGODB_URI = 'mongodb://127.0.0.1:27017/agenthire';
+process.env.MONGODB_URI = env.MONGODB_URI || 'mongodb://127.0.0.1:27017/agenthire';
 
 const User = require('./src/models/User');
 const Job = require('./src/models/Job');
