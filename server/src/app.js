@@ -16,6 +16,11 @@ const analyticsRoutes = require('./routes/analyticsRoutes');
 // Initialize app
 const app = express();
 
+app.use((req, res, next) => {
+  console.log(`[Request] ${req.method} ${req.originalUrl || req.url}`);
+  next();
+});
+
 // Connect Database
 connectDB();
 
@@ -46,12 +51,17 @@ app.use(express.urlencoded({ extended: true }));
 // Serve uploaded PDFs statically
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-// Mount routes
-app.use('/api/auth', authRoutes);
-app.use('/api/jobs', jobRoutes);
-app.use('/api/candidates', candidateRoutes);
-app.use('/api/workflow', workflowRoutes);
-app.use('/api/analytics', analyticsRoutes);
+// Mount routes (both with and without /api prefix for robustness)
+const mountRoutes = (prefix) => {
+  app.use(`${prefix}/auth`, authRoutes);
+  app.use(`${prefix}/jobs`, jobRoutes);
+  app.use(`${prefix}/candidates`, candidateRoutes);
+  app.use(`${prefix}/workflow`, workflowRoutes);
+  app.use(`${prefix}/analytics`, analyticsRoutes);
+};
+
+mountRoutes('/api');
+mountRoutes('');
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -60,6 +70,7 @@ app.get('/health', (req, res) => {
 
 // 404 Route handler
 app.use((req, res, next) => {
+  console.log(`[404] Route not found: ${req.method} ${req.originalUrl}`);
   res.status(404).json({ success: false, error: 'API route not found' });
 });
 
