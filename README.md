@@ -122,3 +122,24 @@ To execute API endpoint testing (Authentication, Jobs, Candidates):
 ```bash
 npm run test --prefix server
 ```
+
+---
+
+## Cloud Deployment
+
+AgentHire is configured for modern multi-service cloud hosting:
+
+### 1. Backend Server (Render Blueprint)
+* Deployed on **Render** using the Blueprint configuration in the root directory.
+* Go to your **Render Dashboard**, click **New** -> **Blueprint**, and select this repository.
+* Enter your environment variable values securely when prompted:
+  * `MONGODB_URI`: Your MongoDB Atlas cloud connection URI.
+  * `JWT_SECRET`: A secure custom string for token validation.
+* Once the build completes and is marked **Live**, copy your backend service URL.
+
+### 2. Frontend Client (Vercel)
+* Deployed on **Vercel** with automatic Next.js configurations.
+* Import the repository to Vercel, set the **Root Directory** to `client`, and configure the following environment variable:
+  * `NEXT_PUBLIC_API_URL`: `https://<YOUR-RENDER-URL>/api` (e.g. `https://agenthire-backend.onrender.com/api`).
+* Click **Deploy** to publish the recruiter and application portals.
+
