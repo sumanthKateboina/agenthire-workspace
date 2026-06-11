@@ -11,7 +11,7 @@ import {
 
 export default function Dashboard() {
   const router = useRouter();
-  const { isAuthenticated, initialize, loading, getAuthHeaders } = useAuthStore();
+  const { isAuthenticated, initialize, loading, logout, getAuthHeaders } = useAuthStore();
   
   const [stats, setStats] = useState(null);
   const [jobs, setJobs] = useState([]);
@@ -35,16 +35,31 @@ export default function Dashboard() {
 
       // 1. Fetch Analytics
       const analRes = await fetch(`${apiBaseUrl}/analytics`, { headers });
+      if (analRes.status === 401) {
+        logout();
+        router.push('/login');
+        return;
+      }
       if (!analRes.ok) throw new Error('Failed to load system analytics.');
       const analData = await analRes.json();
 
       // 2. Fetch Jobs
       const jobsRes = await fetch(`${apiBaseUrl}/jobs`, { headers });
+      if (jobsRes.status === 401) {
+        logout();
+        router.push('/login');
+        return;
+      }
       if (!jobsRes.ok) throw new Error('Failed to retrieve job database.');
       const jobsData = await jobsRes.json();
 
       // 3. Fetch Candidates
       const candRes = await fetch(`${apiBaseUrl}/candidates`, { headers });
+      if (candRes.status === 401) {
+        logout();
+        router.push('/login');
+        return;
+      }
       if (!candRes.ok) throw new Error('Failed to retrieve candidate database.');
       const candData = await candRes.json();
 

@@ -72,9 +72,11 @@ app.use((err, req, res, next) => {
   });
 });
 
-const PORT = env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`AgentHire Server running in ${env.NODE_ENV} mode on port ${PORT}`);
-});
+if (require.main === module) {
+  const PORT = env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`AgentHire Server running in ${env.NODE_ENV} mode on port ${PORT}`);
+  });
+}
 
 module.exports = app;
